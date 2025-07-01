@@ -74,7 +74,7 @@ class SetupForm(BaseForm):
     )
     ctf_theme = SelectField(
         _l("Theme"),
-        description=_l("CTFd Theme to use. Can be changed later."),
+        description=_l("MCSC Website Theme to use. Can be changed later."),
         choices=list(zip(get_themes(), get_themes())),
         ## TODO: Replace back to DEFAULT_THEME (aka core) in CTFd 4.0
         default="core-beta",

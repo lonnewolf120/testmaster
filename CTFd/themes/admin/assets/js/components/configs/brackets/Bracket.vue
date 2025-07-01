@@ -16,9 +16,7 @@
         <div class="form-group">
           <label>Bracket Name</label>
           <input type="text" class="form-control" v-model.lazy="bracket.name" />
-          <small class="form-text text-muted">
-            Bracket name (e.g. "Students", "Interns", "Engineers")
-          </small>
+          <small class="form-text text-muted">Bracket name</small>
         </div>
       </div>
 
@@ -41,10 +39,7 @@
           <option value="users">Users</option>
           <option value="teams">Teams</option>
         </select>
-        <small class="form-text text-muted">
-          If you are using Team Mode and would like the bracket to apply to
-          entire teams instead of individuals, select Teams.
-        </small>
+        <small class="form-text text-muted">Bracket Type</small>
       </div>
     </div>
 
@@ -112,7 +107,7 @@ export default {
         })
         .then((response) => {
           if (response.success === true) {
-            this.bracket = response.data;
+            this.field = response.data;
             ezToast({
               title: "Success",
               body: message,

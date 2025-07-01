@@ -6,30 +6,16 @@ import { embed } from "./utils/graphs/echarts";
 window.Alpine = Alpine;
 window.CTFd = CTFd;
 
-// Default scoreboard polling interval to every 5 minutes
-const scoreboardUpdateInterval = window.scoreboardUpdateInterval || 300000;
-
 Alpine.data("ScoreboardDetail", () => ({
   data: {},
   show: true,
-  activeBracket: null,
-
-  async update() {
-    this.data = await CTFd.pages.scoreboard.getScoreboardDetail(10, this.activeBracket);
-
-    let optionMerge = window.scoreboardChartOptions;
-    let option = getOption(CTFd.config.userMode, this.data, optionMerge);
-
-    embed(this.$refs.scoregraph, option);
-    this.show = Object.keys(this.data).length > 0;
-  },
 
   async init() {
-    this.update();
+    this.data = await CTFd.pages.scoreboard.getScoreboardDetail(10);
 
-    setInterval(() => {
-      this.update();
-    }, scoreboardUpdateInterval);
+    let option = getOption(CTFd.config.userMode, this.data);
+    embed(this.$refs.scoregraph, option);
+    this.show = Object.keys(this.data).length > 0;
   },
 }));
 
@@ -38,21 +24,13 @@ Alpine.data("ScoreboardList", () => ({
   brackets: [],
   activeBracket: null,
 
-  async update() {
-    this.brackets = await CTFd.pages.scoreboard.getBrackets(CTFd.config.userMode);
-    this.standings = await CTFd.pages.scoreboard.getScoreboard();
-  },
-
   async init() {
-    this.$watch("activeBracket", value => {
-      this.$dispatch("bracket-change", value);
+    let response = await CTFd.fetch(`/api/v1/brackets?type=${CTFd.config.userMode}`, {
+      method: "GET",
     });
-
-    this.update();
-
-    setInterval(() => {
-      this.update();
-    }, scoreboardUpdateInterval);
+    const body = await response.json();
+    this.brackets = body["data"];
+    this.standings = await CTFd.pages.scoreboard.getScoreboard();
   },
 }));
 

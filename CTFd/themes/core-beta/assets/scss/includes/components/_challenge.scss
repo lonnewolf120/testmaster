@@ -9,32 +9,12 @@
   }
 }
 
-[data-bs-theme="light"] .challenge-button {
-  border: none;
-  box-shadow: 0 0 15px var(--bs-secondary);
-
-  &.challenge-solved {
-    background-color: #29c830;
-
-    &:hover {
-      background-color: #37d63e;
-    }
-  }
+.challenge-button {
+  box-shadow: 3px 3px 3px var(--bs-secondary);
 }
 
-[data-bs-theme="dark"] .challenge-button {
+.challenge-solved {
+  background-color: #37d63e !important;
+  opacity: 0.6;
   border: none;
-  background-color: var(--bs-gray-dark);
-
-  &:hover {
-    background-color: var(--bs-gray);
-  }
-
-  &.challenge-solved {
-    background-color: #29c830;
-
-    &:hover {
-      background-color: #37d63e;
-    }
-  }
 }

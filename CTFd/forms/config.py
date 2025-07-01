@@ -194,6 +194,6 @@ class VisibilitySettingsForm(BaseForm):
 class LocalizationForm(BaseForm):
     default_locale = SelectField(
         "Default Language",
-        description="Language to use if a user does not specify a language in their account settings. By default, CTFd will auto-detect the user's preferred language.",
+        description="Language to use if a user does not specify a language in their account settings. By default, MCSC Website will auto-detect the user's preferred language.",
         choices=SELECT_LANGUAGE_LIST,
     )

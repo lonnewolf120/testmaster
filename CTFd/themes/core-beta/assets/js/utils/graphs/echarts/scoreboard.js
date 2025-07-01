@@ -1,9 +1,17 @@
 import { colorHash } from "@ctfdio/ctfd-js/ui";
-import { mergeObjects } from "../../objects";
-import { cumulativeSum } from "../../math";
 import dayjs from "dayjs";
 
-export function getOption(mode, places, optionMerge) {
+export function cumulativeSum(arr) {
+  let result = arr.concat();
+  for (let i = 0; i < arr.length; i++) {
+    result[i] = arr.slice(0, i + 1).reduce(function (p, i) {
+      return p + i;
+    });
+  }
+  return result;
+}
+
+export function getOption(mode, places) {
   let option = {
     title: {
       left: "center",
@@ -94,8 +102,5 @@ export function getOption(mode, places, optionMerge) {
     option.series.push(data);
   }
 
-  if (optionMerge) {
-    option = mergeObjects(option, optionMerge);
-  }
   return option;
 }

@@ -1,6 +1,4 @@
-import { mergeObjects } from "../../objects";
-
-export function getOption(solves, fails, optionMerge) {
+export function getOption(solves, fails) {
   let option = {
     title: {
       left: "center",
@@ -79,9 +77,5 @@ export function getOption(solves, fails, optionMerge) {
       },
     ],
   };
-
-  if (optionMerge) {
-    option = mergeObjects(option, optionMerge);
-  }
   return option;
 }

@@ -1,7 +1,6 @@
 import { colorHash } from "@ctfdio/ctfd-js/ui";
-import { mergeObjects } from "../../objects";
 
-export function getOption(solves, optionMerge) {
+export function getOption(solves) {
   let option = {
     title: {
       left: "center",
@@ -100,8 +99,5 @@ export function getOption(solves, optionMerge) {
     });
   });
 
-  if (optionMerge) {
-    option = mergeObjects(option, optionMerge);
-  }
   return option;
 }

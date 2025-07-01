@@ -155,9 +155,9 @@ class ThemeLoader(FileSystemLoader):
 
 def confirm_upgrade():
     if sys.stdin.isatty():
-        print("/*\\ CTFd has updated and must update the database! /*\\")
+        print("/*\\ MCSC Website has updated and must update the database! /*\\")
         print("/*\\ Please backup your database before proceeding! /*\\")
-        print("/*\\ CTFd maintainers are not responsible for any data loss! /*\\")
+        print("/*\\ MCSC Website maintainers are not responsible for any data loss! /*\\")
         if input("Run database migrations (Y/N)").lower().strip() == "y":  # nosec B322
             return True
         else:
@@ -185,7 +185,7 @@ def create_app(config="CTFd.config.Config"):
 
         # If we are importing we should pause startup until the import is finished
         while import_in_progress():
-            print("Import currently in progress, CTFd startup paused for 5 seconds")
+            print("Import currently in progress, MCSC Website startup paused for 5 seconds")
             time.sleep(5)
 
         loaders = []

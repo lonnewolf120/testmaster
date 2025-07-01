@@ -4,14 +4,14 @@
     <script>
         var CHALLENGE_ID = {{ challenge.id }};
     </script>
-    {% if Assets.manifest(_return_none_on_load_failure=True) %}
+    {% if "beta" in Configs.ctf_theme %}
         {{ Assets.js("assets/js/challenges.js") }}
         <script type="module">
             CTFd.config.preview = true;
             CTFd.pages.challenge.displayChallenge(CHALLENGE_ID);
         </script>
     {% else %}
-        {# TODO: Remove this in CTFd 4.0 when old themes have been deprecated #}
+        {# TODO: Remove this in the website4.0 when old themes have been deprecated #}
         <script type="module">
             const displayHint = data => {
                 alert(data.html);

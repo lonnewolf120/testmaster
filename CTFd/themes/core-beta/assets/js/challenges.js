@@ -63,8 +63,6 @@ Alpine.data("Challenge", () => ({
   solves: [],
   response: null,
   share_url: null,
-  max_attempts: 0,
-  attempts: 0,
 
   async init() {
     highlight();
@@ -174,11 +172,6 @@ Alpine.data("Challenge", () => ({
   async renderSubmissionResponse() {
     if (this.response.data.status === "correct") {
       this.submission = "";
-    }
-
-    // Increment attempts counter
-    if (this.max_attempts > 0 && this.response.data.status != "already_solved") {
-      this.attempts += 1;
     }
 
     // Dispatch load-challenges event to call loadChallenges in the ChallengeBoard
