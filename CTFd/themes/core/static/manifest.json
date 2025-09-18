@@ -20,6 +20,11 @@
       "assets/js/index.js"
     ]
   },
+  "assets/js/color_mode_switcher.js": {
+    "file": "assets/color_mode_switcher.52334129.js",
+    "src": "assets/js/color_mode_switcher.js",
+    "isEntry": true
+  },
   "assets/js/settings.js": {
     "file": "assets/settings.03b0e683.js",
     "src": "assets/js/settings.js",
