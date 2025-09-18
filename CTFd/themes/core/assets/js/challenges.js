@@ -72,15 +72,6 @@ Alpine.data("Challenge", () => ({
   solution: null,
   response: null,
   share_url: null,
-<<<<<<< HEAD:CTFd/themes/core-beta/assets/js/challenges.js
-=======
-  max_attempts: 0,
-  attempts: 0,
-  ratingValue: 0,
-  selectedRating: 0,
-  ratingReview: "",
-  ratingSubmitted: false,
->>>>>>> upstream/master:CTFd/themes/core/assets/js/challenges.js
 
   async init() {
     highlight();
@@ -216,18 +207,6 @@ Alpine.data("Challenge", () => ({
       this.submission = "";
     }
 
-<<<<<<< HEAD:CTFd/themes/core-beta/assets/js/challenges.js
-=======
-    // Increment attempts counter
-    if (
-      this.max_attempts > 0 &&
-      this.response.data.status != "already_solved" &&
-      this.response.data.status != "ratelimited"
-    ) {
-      this.attempts += 1;
-    }
-
->>>>>>> upstream/master:CTFd/themes/core/assets/js/challenges.js
     // Dispatch load-challenges event to call loadChallenges in the ChallengeBoard
     this.$dispatch("load-challenges");
   },
